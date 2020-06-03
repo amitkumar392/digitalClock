@@ -1,0 +1,73 @@
+,<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+#digitalClock{
+   
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-size: 100px;
+   
+
+   
+}
+
+
+    </style>
+</head>
+<body>
+   
+    
+    <div id="digitalClock"></div>
+
+
+    <script>
+        function showtime(){
+            let date =new Date();
+            let hour = date.getHours(); //0-23
+            let minute = date.getMinutes(); //0-59
+            let second = date.getSeconds(); //0-59
+
+            let period="AM";
+
+            if(hour==0){
+                h=12;
+            }
+            // if(h<10){
+            //     h="0"+h;
+            // }
+            // if(m<10){
+            //     m="0"+m;
+            // }
+
+            // if(s<10){
+            //     s="0"+s;
+            // }
+            // we can use ternary operator instead of if condition
+            //it will reduce the line of code
+          
+
+            if(hour>12){
+                hour=hour-12;
+                period="PM";
+
+            }
+            hour=  hour<10?"0"+hour:hour;
+          minute=  minute<10?"0"+minute:minute;
+          second=  second<10?"0"+second:second;
+
+            let time = hour+ ":" + minute + ":" + second +  " " + period;
+
+           
+            
+            document.getElementById("digitalClock").textContent=time;
+            setTimeout(showtime,1000);
+        }
+        showtime();
+    </script>
+</body>
+</html>
